@@ -35,19 +35,28 @@ public class WorksopProgram {
 //			prep.setDouble(7, 865245164);
 //			prep.executeUpdate();
 			
-			 PreparedStatement prep1 = connection.prepareStatement("select * from AddressBook03 where ID = ?");
-             prep1.setInt(1, 1);
-             ResultSet resultSet = prep1.executeQuery();
-             while (resultSet.next()) {
-               System.out.println(resultSet.getInt("ID"));
-               System.out.println(resultSet.getString("name"));
-               System.out.println(resultSet.getString("address"));
-               System.out.println(resultSet.getString("city"));
-               System.out.println(resultSet.getString("state"));
-               System.out.println(resultSet.getInt("zip"));
-               System.out.println(resultSet.getDouble("phonenumber"));
+//			 PreparedStatement prep1 = connection.prepareStatement("select * from AddressBook03 where ID = ?");
+//             prep1.setInt(1, 1);
+//             ResultSet resultSet = prep1.executeQuery();
+//             while (resultSet.next()) {
+//               System.out.println(resultSet.getInt("ID"));
+//               System.out.println(resultSet.getString("name"));
+//               System.out.println(resultSet.getString("address"));
+//               System.out.println(resultSet.getString("city"));
+//               System.out.println(resultSet.getString("state"));
+//               System.out.println(resultSet.getInt("zip"));
+//               System.out.println(resultSet.getDouble("phonenumber"));
+			
+			/*
+			 * Updating the existing data from the database
+			 * Using MYSQL command for updation
+			 */
+			PreparedStatement prep2 = connection.prepareStatement("update AddressBook03 set zip = '125896' where ID='1'");
+			
+			prep2.executeUpdate();
+
            }
-		} catch (Exception e) {
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
